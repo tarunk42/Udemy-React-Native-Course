@@ -3,6 +3,7 @@ const express = require('express');                                     // Expre
 const mongoose = require('mongoose');                                   // MongoDB library import Step:1
 const bodyParser = require('body-parser');                              // Handling JSON data Step:3
 const authRoutes = require('./routes/authRoutes');                      // Authentication Step:2
+const requireAuth = require('./middlewares/requireAuth');               // JWT token user authentication
 
 const app = express();                                                  // Express API Init Step: 0
 
@@ -24,8 +25,8 @@ mongoose.connection.on('error', (err) => {                              // Mongo
     console.error('Error connecting to mongo', err);
 });
 
-app.get('/', (req, res) => {                                               // Express API get request for testing Step:0
-    res.send('Hi there!!!@!!!!!!');
+app.get('/', requireAuth, (req, res) => {                                               // Express API get request for testing Step:0
+    res.send(`Your email: ${req.user.email}`);
 });
 
 app.listen(3000, () => {                                                   // Express API listener at port 3000 ( if 3000 is not available try something else) Step:0

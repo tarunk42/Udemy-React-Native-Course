@@ -9,3 +9,7 @@ passwordpassword
 mongodb+srv://theAdmin:passwordpassword@cluster0.xj3sd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
 mongodb+srv://theAdmin:passwordpassword@cluster0.gmcqw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
+
+
+JWT Token key : MY_SECRET_KEY

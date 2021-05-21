@@ -1,5 +1,6 @@
 const express = require('express');                                     // Step:2
 const mongoose = require('mongoose');                                   // Step:4
+const jwt = require('jsonwebtoken');                                    // Creating JSON web token Step:6
 const User = mongoose.model('User');                                    // Step:4
 
 const router = express.Router();                                        // Step:2
@@ -17,11 +18,13 @@ router.post('/signup', async (req, res) => {
         const user = new User({ email, password });
         await user.save();
 
-        res.send('You made a post request');
+        const token = jwt.sign({ userId: user._id }, 'MY_SECRET_KEY' );       // Creating jwt token Step:6
+        // res.send('You made a post request');
+        res.send({ token });
     } catch (err) {
         return res.status(422).send(err.message);
     }
-    console.log(req.body);                                             // Step:3
+    // console.log(req.body);                                             // Step:3
     // res.send('You made a post request!');                           // Step:2
 }); 
 
