@@ -1,14 +1,17 @@
 require('./models/User');                                               // Step:4 
+require('./models/Track');
 const express = require('express');                                     // Express API library import Step:0
 const mongoose = require('mongoose');                                   // MongoDB library import Step:1
 const bodyParser = require('body-parser');                              // Handling JSON data Step:3
 const authRoutes = require('./routes/authRoutes');                      // Authentication Step:2
+const trackRoutes = require('./routes/trackRoutes');
 const requireAuth = require('./middlewares/requireAuth');               // JWT token user authentication
 
 const app = express();                                                  // Express API Init Step: 0
 
 app.use(bodyParser.json());                                             // JSON data parser Step:3
 app.use(authRoutes);                                                    // Authentication Step:2
+app.use(trackRoutes);
 
 const mongoUri = 'mongodb+srv://theAdmin:passwordpassword@cluster0.gmcqw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' ;           // MongoDB cluster connection URI Step:1 
 
