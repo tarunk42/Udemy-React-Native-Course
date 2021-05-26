@@ -13,3 +13,38 @@ mongodb+srv://theAdmin:passwordpassword@cluster0.gmcqw.mongodb.net/myFirstDataba
 
 
 JWT Token key : MY_SECRET_KEY
+
+
+npm install react-navigation
+
+expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+
+npm install react-navigation-stack @react-native-community/masked-view
+
+npm install @react-navigation/bottom-tabs		for createBottomTabNavigator( deprecated form react-navigation-stacks)
+
+npm install @react-navigation/stack			for createNavigationStack(prev on react-navigation)
+
+
+
+
+SignupScreen.navigationOptions = () => {
+  return {
+    header: () => false,
+  };
+};
+
+
+npm install axios
+
+npm install @react-native-async-storage/async-storage
+
+<NavigationEvents onWillFocus={clearErrorMessage}
+
+SafeAreaView has been moved to	"react-native-safe-area-context" from "react-navigation"
+
+import { SafeAreaView } from 'react-native-safe-area-context';		------ >> use this
+
+npx expo-cli install react-native-maps
+
+npx expo-cli install expo-location
